@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>
+  </title>
+
+</head>
+<body>
+  <div id="app">
+    <div v-for="group in groups">
+      <ul>
+        <li v-if="group.type === 'A'" v-for="item in group.items">
+          A. {{item}}
+        </li>      
+        <li v-else-if="group.type === 'B'" v-for="item in group.items">
+          B. {{item}}
+        </li>
+        <li v-else v-for="item in group.items">
+          C. {{item}}
+        </li>
+      </ul>
+    </div>
+    <hr>
+  </div>
+  <script src="vue.js"></script>
+  <script type="text/javascript">
+    var app = new Vue({
+      el: '#app',
+      data: function () {
+        return {
+          groups :[
+            {
+              type: 'A',
+              items: [0,0,0,0,0,0]
+            },
+            {
+              type: 'B',
+              items: [1,1,1,1,1,1]
+            },
+            {
+              type: 'C',
+              items: [2,2,2,2,2,2]
+            }
+          ]
+
+        }
+      }
+    })
+  </script>
+</body>
+</html>
